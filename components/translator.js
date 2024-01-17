@@ -10,42 +10,42 @@ const reverseDict = (obj) => {
   );
 };
 class Translator {
-  toBritishEnglish(text) {
-    const dict = { ...americanOnly, ...americanToBritishSpelling };
-    const titles = americanToBritishTitles;
-    const timeRegex = /([1-9]|1[012]):[0-5][0-9]/g;
-    const translated = this.translate(
-      text,
-      dict,
-      titles,
-      timeRegex,
-      "toBritish"
-    );
-    if (!translated) {
-      return text;
-    }
-
-    return translated;
-  }
-
-  toAmericanEnglish(text) {
-    const dict = { ...britishOnly, ...reverseDict(americanToBritishSpelling) };
-    const titles = reverseDict(americanToBritishTitles);
-    const timeRegex = /([1-9]|1[012]).[0-5][0-9]/g;
-    const translated = this.translate(
-      text,
-      dict,
-      titles,
-      timeRegex,
-      "toAmerican"
-    );
-    if (!translated) {
-      return text;
-    }
-  }
-  translate(text, dict, titles, timeRegex, locale) {
-    const lowerText = text.toLowerCase();
-    const matchesMap = {};
+    toBritishEnglish(text) {
+        const dict = { ...americanOnly, ...americanToBritishSpelling };
+        const titles = americanToBritishTitles;
+        const timeRegex = /([1-9]|1[012]):[0-5][0-9]/g;
+        const translated = this.translate(
+          text,
+          dict,
+          titles,
+          timeRegex,
+          "toBritish"
+        );
+        if (!translated) {
+          return text;
+        }
+    
+        return translated;
+      }
+      toAmericanEnglish(text) {
+        const dict = { ...britishOnly, ...reverseDict(americanToBritishSpelling) };
+        const titles = reverseDict(americanToBritishTitles);
+        const timeRegex = /([1-9]|1[012]).[0-5][0-9]/g;
+        const translated = this.translate(
+          text,
+          dict,
+          titles,
+          timeRegex,
+          "toAmerican"
+        );
+        if (!translated) {
+          return text;
+        }
+        return translated;
+      }
+      translate(text, dict, titles, timeRegex, locale) {
+        const lowerText = text.toLowerCase();
+        const matchesMap = {};
 
     // Search for titles/honorific & add to matchesMap
     Object.entries(titles).map(([k, v]) => {
