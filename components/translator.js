@@ -60,7 +60,7 @@ const wordsWithSpace = Object.fromEntries(
 
 // search for spaced word matches & add to matchesMap
 Object.entries(wordsWithSpace).map(([k, v]) => {
-    if (lowerText.inludes(k)) (matchesMap[k] = v)
+    if (lowerText.includes(k)) (matchesMap[k] = v)
 }); 
 // search for individual word matches & add to matchesMap
     lowerText.match(/(\w+([-'])(\w+)?['-]?(\w+))|\w+/g).forEach((word) => {
