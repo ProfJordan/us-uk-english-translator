@@ -24,7 +24,7 @@ module.exports = function (app) {
       } else if (locale == "british-to-american") {
         translation = translator.toAmericanEnglish(text);
       } else {
-        res.json({ error:  "Invalid locale" });
+        res.json({ error:  "Invalid value for locale field" });
         return;
       }
       if (translation == text || !translation) {
