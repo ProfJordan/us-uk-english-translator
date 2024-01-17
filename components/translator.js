@@ -31,7 +31,7 @@ class Translator {
   toAmericanEnglish(text) {
     const dict = { ...britishOnly, ...reverseDict(americanToBritishSpelling) };
     const titles = reverseDict(americanToBritishTitles);
-    const timeRegex = /([0-9]|1[012]).[0-5][0-9]/g;
+    const timeRegex = /([1-9]|1[012]).[0-5][0-9]/g;
     const translated = this.translate(
       text,
       dict,
@@ -100,9 +100,7 @@ class Translator {
   replaceAllWithHighlight(text, matchesMap) {
     const re = new RegExp(Object.keys(matchesMap).join("|"), "gi");
     return text.replace(re, (matched) => {
-      return `<span class="highlight">${
-        matchesMap[matched, toLowerCase()]
-      }</span>`;
+      return `<span class="highlight">${matchesMap[matched.toLowerCase()]}</span>`;
     });
   }
 }
