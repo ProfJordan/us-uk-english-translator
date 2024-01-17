@@ -101,7 +101,7 @@ class Translator {
     const re = new RegExp(Object.keys(matchesMap).join("|"), "gi");
     return text.replace(re, (matched) => {
       return `<span class="highlight">${
-        matchesMap[(matched, toLowerCase())]
+        matchesMap[matched, toLowerCase()]
       }</span>`;
     });
   }
